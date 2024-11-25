@@ -11,7 +11,7 @@ export function useMainContract() {
         {
             counter_value: number;
             recent_sender: Address;   // latest sender address written by contract FunC
-            owner: Address;
+            owner_address: Address;
         }>();
 
     const [contractBalance, setContractBalance] = useState < null | number >(0);
@@ -33,7 +33,7 @@ export function useMainContract() {
             setContractData({
                 counter_value: val.counter_number,
                 recent_sender: val.sender_address,
-                owner: val.owner_address
+                owner_address: val.owner_address
             });
             setContractBalance(balance);
         }
