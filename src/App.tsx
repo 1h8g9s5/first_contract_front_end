@@ -2,7 +2,8 @@ import './App.css'
 import { TonConnectButton } from '@tonconnect/ui-react'
 import { useMainContract } from './hooks/useMainContract'
 import { useTonConnect } from './hooks/useTonConnect'
-import { useState } from 'react';
+import { useState } from 'react'
+import WebApp from "@twa-dev/sdk"
 
 function App() {
   const {
@@ -31,6 +32,16 @@ function App() {
     <>
       <h1>First Contract Front End</h1>
       
+      <div>
+        <b>Visiting via: </b>
+        <b>{WebApp. platform}</b>
+      </div>
+      <button onClick={ () => {
+        WebApp.showAlert("Hello from FCFE Bot");}
+      }>
+        WebApp ShowAlert
+      </button>
+
       <div>
         <center><TonConnectButton /></center>
       </div>
