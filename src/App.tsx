@@ -13,7 +13,9 @@ function App() {
     contract_balance,
     incrementValue,
     updateIncrementValue,
-    sendIncrement
+    sendIncrement,
+    sendDeposit,
+    sendWitdrawRequest
   } = useMainContract();
 
   const { connected } = useTonConnect();
@@ -73,6 +75,24 @@ function App() {
                 <option value="4">4</option>
                 <option value="5">5</option>
               </select>
+            </>
+            <>
+              <div className='Card'>
+                <button
+                  onClick={() => { sendDeposit(); } }
+                >
+                  Deposit 1 TON to Contract
+                </button>
+              </div>
+            </>
+            <>
+              <div className='Card'>
+                <button
+                  onClick={() => { sendWitdrawRequest(); } }
+                >
+                  Withdraw 1 TON from Contract
+                </button>
+              </div>
             </>
           </>
         )}

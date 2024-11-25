@@ -37,6 +37,18 @@ export function useMainContract() {
         return mainContract?.sendIncrement(sender, toNano("0.05"), incrementValue);   // set increment_by via UI
     };
 
+    const sendDeposit = () => { 
+        return mainContract?.sendDeposit(sender, toNano("1"));   // set 1 TON deposit
+    };
+
+    const sendWitdrawRequest = () => { 
+        return mainContract?.sendWithdrawRequest(
+            sender,
+            toNano("0.05"),     // transanction fee
+            toNano("1")       // withdraw 1 TON
+        ); 
+    };
+
     useEffect( () => {
         async function getValue() {
             if (!mainContract) return;
@@ -64,5 +76,7 @@ export function useMainContract() {
         incrementValue,
         updateIncrementValue,
         sendIncrement,
+        sendDeposit,
+        sendWitdrawRequest
     }
 }
